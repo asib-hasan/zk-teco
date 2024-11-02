@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Http;
 class DeviceController extends Controller
 {
     public function index(){
-        $startTime = Carbon::now()->subHours(72)->format('Y-m-d H:i:s');
-        $endTime = Carbon::now()->format('Y-m-d H:i:s');
-        $data = AccessControl::getTransactions($page = 1, $page_size = 10, $emp_code = null, $terminal_sn = null, $terminal_alias = null, $startTime, $endTime);
+        $startTime = Carbon::now()->subHours(48)->format('Y-m-d H:i:s');
+        $endTime = Carbon::now()->addHours(6)->format('Y-m-d H:i:s');
+        return $data = AccessControl::getTransactions($page = 1, $page_size = 1000, $emp_code = null, $terminal_sn = null, $terminal_alias = null, $startTime, $endTime);
         $attendanceData = [];
         $token = "mah&*#(@())!!";
         foreach ($data['data'] as $entry) {
